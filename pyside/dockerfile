@@ -1,0 +1,13 @@
+FROM python:2.7-alpine
+RUN apk update && apk upgrade
+# RUN mkdir /install
+# RUN mkdir /install
+# WORKDIR /install
+RUN apk add --update alpine-sdk
+RUN apk add qt5-qtdeclarative
+
+RUN pip install pyside
+RUN pip install Qt.py
+
+
+ENV PATH /usr/local/lib/python2.7/site-packages/PySide/:$PATH
