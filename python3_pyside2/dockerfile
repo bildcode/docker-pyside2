@@ -1,7 +1,13 @@
-FROM python:stretch-3.6
+FROM iron/python:3.6
 
-RUN apt-get -y update
-RUN apt-get install -y libqt5-dev cmake xvfb
-RUN pip install pyside2
+RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+apk update && apk upgrade \
+  && apk add --update alpine-sdk nano qt5-qtbase qt5-qttools-dev xvfb\
+  && rm -rf /var/cache/apk/*
 
-ENV PATH /usr/local/lib/python3.6/site-packages/PySide2/:$PATH
+# RUN pip3 install PySide2
+# RUN pip3 install Qt.py
+# RUN pip3 install pytest
+# RUN pip3 install pytest-cov
+# RUN pip3 install anybadge
+
