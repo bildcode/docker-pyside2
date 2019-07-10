@@ -6,8 +6,10 @@ We start in a bash shell on purpose, so we can
 conveniently configure our CI setup from here.
 
 # Dockerfiles / Tags
-* py3.6
-* py3.7
+* py3.6  (trusty)
+* py3.7  (trusty)
+* py3.6-dev (experimental)
+* py3.7-dev (experimental)
 
 
 # Pre-installed pip packages
