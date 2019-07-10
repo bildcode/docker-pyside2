@@ -5,9 +5,9 @@ RUN apt-get update && \
     apt-get install -y xvfb qtbase5-dev-tools && \
     rm -rf /var/cache/apk/* && \
 
-    python -m pip install --upgrade pip && \
+    python -m pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir PySide2 && \
     pip install --no-cache-dir Qt.py && \
-    pip install pytest pytest-cov anybadge pylint devpi-client
+    pip install --no-cache-dir pytest pytest-cov anybadge pylint devpi-client
 
 CMD ["bin/bash"]
