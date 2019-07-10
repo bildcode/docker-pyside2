@@ -1,6 +1,20 @@
-# dock
-Dockerfiles for CI
+# Debian, Python 3, Qt5, PySide2 + CI helpers
+The intention is to have lightweight containers
+to work with CI runners like the ones in GitLab.
 
-# dockerfiles
-## python3_pyside2
-A lightweight image with Python 3.6 and PySide2.
+We start in a bash shell on purpose, so we can 
+conveniently configure our CI setup from here.
+
+# Dockerfiles / Tags
+* py3.6
+* py3.7
+
+
+# Pre-installed pip packages
+* PySide2
+* Qt.py
+* pytest
+* pytest-cov
+* pylint
+* devpi-client
+* anybadge
