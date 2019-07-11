@@ -7,10 +7,11 @@ conveniently configure our CI setup from here.
 
 # Dockerfiles / Tags
 The containers are automatically updated when their base images do.
-* py3.6 (trusty)
-* py3.7 (trusty)
-* py3.6-dev (experimental)
-* py3.7-dev (experimental)
+* latest (based on python:slim-stretch)
+* py3.7 (based on python:3.7-slim-stretch)
+* py3.7-dev (same base, experimental)
+* py3.6 (based on python:3.6-slim-stretch)
+* py3.6-dev (same base, experimental)
 
 # Pre-installed pip packages
 * PySide2
