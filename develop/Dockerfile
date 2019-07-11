@@ -8,6 +8,6 @@ RUN apt-get update && \
     python -m pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir PySide2 && \
     pip install --no-cache-dir Qt.py && \
-    pip install --no-cache-dir pytest pytest-cov anybadge pylint devpi-client && \
+    pip install --no-cache-dir pytest pytest-cov anybadge pylint devpi-client
 
 CMD ["bin/bash"]
