@@ -1,3 +1,5 @@
+# Tag: bildcode/pyside2:develop
+
 FROM python:slim-stretch
 
 RUN apt-get update && \
