@@ -8,10 +8,12 @@ conveniently configure our CI setup from here.
 
 # Dockerfiles / Tags
 The containers are automatically updated when their base images do.
-* latest (based on python:slim-stretch)
-* develop (from my develop branch, experimental)
-* py3.7 (based on python:3.7-slim-stretch)
-* py3.6 (based on python:3.6-slim-stretch)
+* **latest** (based on python:slim-stretch)
+* **develop** (from my develop branch, experimental)
+* **py3.7** (based on python:3.7-slim-stretch)
+* **py3.6** (based on python:3.6-slim-stretch)
+
+Link: https://hub.docker.com/r/bildcode/pyside2/tags
 
 # Pre-installed pip packages
 * PySide2
