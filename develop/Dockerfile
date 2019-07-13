@@ -4,11 +4,15 @@ FROM python:slim-stretch
 
 RUN apt-get update && \
     apt-get autoclean && \
-    apt-get install -y --no-install-recommends xvfb qtbase5-dev-tools && \
-    apt-get install -y x11-xserver-utils && \
+    apt-get install -y --no-install-recommends \
+        xvfb \
+        qtbase5-dev-tools && \
+    apt-get install -y \
+        x11-xserver-utils \
+        libxkbcommon-x11-0 \
+        x11-utils && \
     apt-get clean && \
-    rm -rf /var/cache/apk/* /var/cache/apt/archives/* /var/lib/apt/lists/* && \
-
+    rm -rf /var/cache/apk/* && \
     python -m pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir \
         PySide2 \
@@ -20,9 +24,10 @@ RUN apt-get update && \
         pylint \
         devpi-client
 
-ENV DISPLAY=0
+ENV DISPLAY=:99
 ENV SCREEN=0
-ENV DISPLAY_MODE=1024x768x16
+ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
+ENV QT_DEBUG_PLUGINS=1
 VOLUME /tmp/.X11-unix
 
 CMD ["bin/bash"]
