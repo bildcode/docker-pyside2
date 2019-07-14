@@ -5,12 +5,11 @@ FROM python:slim-stretch
 RUN apt-get update && \
     apt-get autoclean && \
     apt-get install -y --no-install-recommends \
-        qtbase5-dev-tools && \
-    apt-get install -y \
+        qtbase5-dev-tools \
         xvfb \
         libegl1-mesa \
         x11-xserver-utils \
-        ibxkbcommon-x11-0 \
+        libxkbcommon-x11-0 \
         x11-utils && \
     apt-get clean && \
     rm -rf /var/cache/apk/* && \
