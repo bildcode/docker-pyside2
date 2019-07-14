@@ -5,11 +5,12 @@ FROM python:slim-stretch
 RUN apt-get update && \
     apt-get autoclean && \
     apt-get install -y --no-install-recommends \
-        xvfb \
         qtbase5-dev-tools && \
     apt-get install -y \
+        xvfb \
+        libegl1-mesa \
         x11-xserver-utils \
-        libxkbcommon-x11-0 \
+        ibxkbcommon-x11-0 \
         x11-utils && \
     apt-get clean && \
     rm -rf /var/cache/apk/* && \
@@ -20,6 +21,7 @@ RUN apt-get update && \
         xvfbwrapper \
         pytest \
         pytest-cov \
+        pytest-xvfb \
         anybadge \
         pylint \
         devpi-client
@@ -27,7 +29,10 @@ RUN apt-get update && \
 ENV DISPLAY=:99
 ENV SCREEN=0
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
-ENV QT_DEBUG_PLUGINS=1
+
+# turn on for verbose qt feedback
+ENV QT_DEBUG_PLUGINS=0
+
 VOLUME /tmp/.X11-unix
 
 CMD ["bin/bash"]
