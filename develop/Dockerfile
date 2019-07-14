@@ -21,6 +21,7 @@ RUN apt-get update && \
         pytest \
         pytest-cov \
         pytest-xvfb \
+        pytest-qt \
         anybadge \
         pylint \
         devpi-client
