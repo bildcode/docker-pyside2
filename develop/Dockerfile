@@ -1,7 +1,9 @@
 # Tag: bildcode/pyside2:develop
 
+# debian with latest Python release
 FROM python:slim-stretch
 
+# install Qt / Pyside2 / CI-helper modules
 RUN apt-get update && \
     apt-get autoclean && \
     apt-get install -y --no-install-recommends \
@@ -26,13 +28,13 @@ RUN apt-get update && \
         pylint \
         devpi-client
 
+# setup virtual display
 ENV DISPLAY=:99
 ENV SCREEN=0
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
 
-# turn on for verbose qt feedback
+# turn this on for verbose qt feedback
 ENV QT_DEBUG_PLUGINS=0
 
-VOLUME /tmp/.X11-unix
-
+# start the container with a bash shell by default
 CMD ["bin/bash"]
