@@ -1,6 +1,6 @@
 # Tag: bildcode/pyside2:py3.6
 
-# debian with Python 3.6
+# debian with latest Python 3.6 release
 FROM python:3.6-slim-stretch
 
 # install Qt / Pyside2 / CI-helper modules
@@ -17,16 +17,19 @@ RUN apt-get update && \
     rm -rf /var/cache/apk/* && \
     python -m pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir \
+        anybadge \
+        devpi-client \
+        flake8 \
+        pylint \
         PySide2 \
-        Qt.py \
-        xvfbwrapper \
         pytest \
         pytest-cov \
-        pytest-xvfb \
         pytest-qt \
-        anybadge \
-        pylint \
-        devpi-client
+        pytest-xvfb \
+        Qt.py \
+        xvfbwrapper && \
+    apt-get purge -y build-essential && \
+    apt-get purge -y cmake
 
 # setup virtual display
 ENV DISPLAY=:99
@@ -35,6 +38,8 @@ ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
 
 # turn this on for verbose qt feedback
 ENV QT_DEBUG_PLUGINS=0
+ENV QT_VERBOSE true
+ENV QT_TESTING true
 
 # start the container with a bash shell by default
 CMD ["bin/bash"]
